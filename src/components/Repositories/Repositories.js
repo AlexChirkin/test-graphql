@@ -1,12 +1,14 @@
 import React, { useMemo, useState } from "react";
-import moment from "moment";
+
 import { useQuery } from "@apollo/react-hooks";
+import moment from "moment";
+
 import { GET_POOL } from "../../gql/query/fetchData";
-import Table from "./Table/Table";
 import FilterLicense from "./FilterLicense/FilterLicense";
+import Pagination from "./Pagination/Pagination";
 import repStyles from "./Repositories.module.css";
 import Search from "./Search/Search";
-import Pagination from "./Pagination/Pagination";
+import Table from "./Table/Table";
 
 const perPage = 15;
 const defaultCursorParam = {

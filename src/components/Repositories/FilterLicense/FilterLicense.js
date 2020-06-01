@@ -1,12 +1,13 @@
 import React, {useCallback} from "react";
-import Select from "react-select";
-import { GET_LICENSE } from "../../../gql/query/fetchData";
+
 import { useQuery } from "@apollo/react-hooks";
 import PropTypes from "prop-types";
+import Select from "react-select";
+
+import { GET_LICENSE } from "../../../gql/query/fetchData";
 import filterStyles from "./FilterLicense.module.css";
 
-const FilterLicense = (props) => {
-  const { setLicense, setCursor, defaultCursorParam } = props;
+const FilterLicense = ({ setLicense, setCursor, defaultCursorParam }) => {
   const { data } = useQuery(GET_LICENSE);
 
   const onSelect = useCallback(

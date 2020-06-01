@@ -8,11 +8,12 @@
 .form .formInput {
   flex-grow: 1;
   height: 32px;
-  padding-left: 8px;
+  padding-left: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 15px;
+  font-family: sans-serif;
 }
 
 .form .formBtn {

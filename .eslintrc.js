@@ -6,7 +6,6 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "eslint:recommended",
         "plugin:import/errors",
         "plugin:import/warnings"
     ],
@@ -30,6 +29,22 @@ module.exports = {
     "rules": {
         "no-unused-expressions": 0,
         "babel/no-unused-expressions": 1,
-        "import/order": ["error", {"groups": ["builtin", "external", "parent", "sibling", "index"]}]
+        "import/order": [      "error",
+        {
+          "groups": ["builtin", "external", "internal"],
+          "pathGroups": [
+            {
+              "pattern": "react",
+              "group": "external",
+              "position": "before"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": ["react"],
+          "newlines-between": "always",
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }]
     }
 };

@@ -1,26 +1,29 @@
 import React, { useEffect, useState, useCallback } from "react";
-import paginationStyles from "./Pagination.module.css";
+
 import PropTypes from "prop-types";
 
-const Pagination = (props) => {
-  const { setCursor, loading, pageInfo, perPage } = props;
+import paginationStyles from "./Pagination.module.css";
+
+
+const Pagination = ({ setCursor, loading, pageInfo, perPage }) => {
   const [beforeCursor, setBeforeCursor] = useState(null);
   const [afterCursor, setAfterCursor] = useState(null);
 
   useEffect(() => {
     setBeforeCursor(pageInfo?.startCursor);
     setAfterCursor(pageInfo?.endCursor);
-    return () => {};
   }, [pageInfo]);
 
   const handleClickPage = useCallback(
-    (action) =>
+    (action) => {
+      const isPrev = action === 'prev'
       setCursor({
-        before: action === "prev" ? beforeCursor : null,
-        after: action === "prev" ? null : afterCursor,
-        first: action === "prev" ? null : perPage,
-        last: action === "prev" ? perPage : null,
-      }),
+        before: isPrev ? beforeCursor : null,
+        after: isPrev ? null : afterCursor,
+        first: isPrev ? null : perPage,
+        last: isPrev ? perPage : null,
+      })
+    } ,
     [beforeCursor, afterCursor, setCursor, perPage]
   );
 

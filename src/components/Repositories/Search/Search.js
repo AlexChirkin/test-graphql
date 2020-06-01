@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from "react";
-import searchStyles from "./Search.module.css";
+
 import PropTypes from "prop-types";
 
-const Search = (props) => {
-  const { setSearch, loading, setCursor, defaultCursorParam } = props;
+import searchStyles from "./Search.module.css";
+
+
+const Search = ({ setSearch, loading, setCursor, defaultCursorParam }) => {
   const [inputVal, setInputVal] = useState("");
 
   const onSubmit = useCallback(

@@ -1,9 +1,12 @@
 import React from "react";
+
 import PropTypes from "prop-types";
+
 import tableStyles from "./Table.module.css";
 
-const Table = (props) => {
-  const { data, loading } = props;
+const mdash =  '\u2014'
+
+const Table = ({ data, loading }) => {
 
   if (!data.length) {
     return <div>No data</div>
@@ -21,25 +24,26 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((v) => (
-            <tr key={v.node?.id}>
+          {data.map((v) => {
+            const {node} = v
+            return <tr key={node?.id}>
               <td>
                 {
                   <a
                     className="link"
-                    href={v.node?.url}
+                    href={node?.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {v.node?.name}
+                    {node?.name}
                   </a>
                 }
               </td>
-              <td>{v.node.primaryLanguage?.name || "\u2014"}</td>
-              <td>{v.node.licenseInfo?.name || "\u2014"}</td>
-              <td>{v.node.stargazers?.totalCount || "\u2014"}</td>
+              <td>{node.primaryLanguage?.name || mdash}</td>
+              <td>{node.licenseInfo?.name || mdash}</td>
+              <td>{node.stargazers?.totalCount || mdash}</td>
             </tr>
-          ))}
+          })}
         </tbody>
       </table>
     </div>

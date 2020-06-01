@@ -1,11 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./assets/styles/reset.css";
-import App from "./App";
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
+
 import { ApolloProvider } from "@apollo/react-hooks";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { HttpLink } from "apollo-link-http";
+import ReactDOM from "react-dom";
+
+import App from "./App";
+import "./assets/styles/reset.css";
 import { GIT_TOKEN, GIT_API_URL} from "./config.js";
 
 const cache = new InMemoryCache();
