@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 
 import { useQuery } from "@apollo/react-hooks";
 import PropTypes from "prop-types";
@@ -12,7 +12,7 @@ const FilterLicense = ({ setLicense, setCursor, defaultCursorParam }) => {
 
   const onSelect = useCallback(
     (e) => {
-      setLicense(e?.value || null)
+      setLicense(e?.value || null);
       setCursor(defaultCursorParam);
     },
     [defaultCursorParam, setCursor, setLicense]
@@ -22,7 +22,10 @@ const FilterLicense = ({ setLicense, setCursor, defaultCursorParam }) => {
     <div className={filterStyles.filter}>
       <Select
         onChange={onSelect}
-        options={data?.licenses?.map((v) => ({value: v?.key,label: v?.name,}))}
+        options={data?.licenses?.map((v) => ({
+          value: v?.key,
+          label: v?.name,
+        }))}
         isClearable={true}
       />
     </div>
