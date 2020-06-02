@@ -1,0 +1,42 @@
+.search {
+  margin-bottom: 15px;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form .formInput {
+  flex-grow: 1;
+  height: 32px;
+  padding-left: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 15px;
+  font-family: sans-serif;
+}
+
+.form .formBtn {
+  width: 125px;
+  background: #36ac3a;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+}
+
+.form .formBtn:hover {
+  background: #138813;
+}
+
+.form .formBtn:disabled {
+  background: #a8a8a8;
+}
+
+@media (max-width: 375px) {
+  .form .formInput { 
+    margin-right: 10px;
+  }
+  .form .formBtn {
+    width: 75px;
+  }
+}
